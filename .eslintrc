@@ -1,0 +1,65 @@
+{
+    "extends": "eslint:recommended",
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+        "es6": true,
+        "commonjs": true,
+        "node": true,
+        "browser": true
+    },
+    "settings": {
+        "ecmascript": 6,
+        "jsx": true
+    },
+    "plugins": [
+        "react",
+        "filenames"
+    ],
+    "globals": {
+      "NODE_ENV": true
+    },
+    "rules": {
+        "semi": 2,
+        "no-var": 2,
+        "space-infix-ops": 2,
+        "space-in-parens": [2, "never"],
+        "eqeqeq": [2, "allow-null"],
+        "max-statements": [2, 15],
+        "max-params": [2, 4],
+        "max-len": [2, 120, 4],
+        "max-depth": [2, 2],
+        "complexity": [2, 4],
+        "strict": 0,
+        "no-console": 0,
+        "quotes": [2, "single"],
+        "no-trailing-spaces": [2, { "skipBlankLines": false }],
+        "camelcase": 0,
+        "indent": [2, 2, { "SwitchCase": 1 }],
+        "space-before-function-paren": [2, "never"],
+        "space-before-blocks": [2, "always"],
+        "keyword-spacing": 2,
+        "key-spacing": [2, {
+          "beforeColon": false,
+          "afterColon": true,
+          "mode": "minimum"
+        }],
+
+        "react/react-in-jsx-scope": 2,
+        "react/jsx-uses-react": 2,
+        "react/jsx-curly-spacing": [2, "never"],
+        "react/jsx-boolean-value": [2, "always"],
+        "react/jsx-indent-props": [2, 2],
+        "react/jsx-indent": [2, 2],
+        "react/jsx-key": 2,
+        "react/jsx-uses-vars": 2,
+        "react/no-string-refs": 2,
+
+        "filenames/filenames": [2, "^[a-z.-]+$"]
+    }
+}
+
