@@ -11,11 +11,13 @@ export class ThemeProvider extends Component {
   render = () => Children.only(this.props.children);
 }
 
+// Pluck class names from the sheet and pass them down
 const PluckClasses = Comp => props => {
   const childProps = omit(props, 'sheet');
   return <Comp {...childProps} styles={props.sheet.classes} />;
 };
 
+// Pull the theme off of context and pass it to a 'PluckClasses' wrapped component
 export const connectTheme = mapThemeToCss => Composed => {
   const wrapped = (props, context) => {
     if (!context || !context.theme) return <Composed {...props} />;

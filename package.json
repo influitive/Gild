@@ -1,12 +1,16 @@
 {
-  "name": "themer",
+  "name": "gild",
   "version": "0.0.1",
   "description": "Pass theme object via react context to jss on a component",
   "main": "index.js",
+  "files": ["index.js"],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "BABEL_ENV=test babel-tape-runner \"src/index.test.js\" | tap-spec",
     "start": "kotatsu serve --port 3009 --progress --devtool \\#eval-source-map --babel example/test.js",
-    "build": "rm -rf lib && babel --quiet src -d lib"
+    "build": "rm -rf lib && babel --quiet src -d lib",
+    "prepublish": "npm run build && mv lib/index.js index.js",
+    "postpublish": "rm index.js",
+    "lint": "eslint ."
   },
   "author": "SeeThruHead",
   "license": "ISC",
@@ -30,11 +34,11 @@
     "babel-tape-runner": "2.0.1",
     "css-loader": "0.23.1",
     "devcards": "git://github.com/glenjamin/devcards-js.git",
-    "enzyme": "2.1.0",
-    "eslint": "^2.4.0",
+    "eslint": "~2.2.0",
     "eslint-plugin-filenames": "0.2.0",
     "eslint-plugin-react": "4.2.3",
     "isparta": "4.0.0",
+    "jss": "^3.3.0",
     "kotatsu": "^0.12.1",
     "nodemon": "^1.8.1",
     "react": "0.14.7",

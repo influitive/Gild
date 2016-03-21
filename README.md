@@ -1,3 +1,6 @@
+### Usage:
+
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -11,10 +14,12 @@ const theme = {
   primary: 'green'
 };
 
+// Component we would like the theme
 const component = (props) => {
   return <div className={props.styles.primary}>{JSON.stringify(props)}</div>;
 };
 
+// Function that maps the themeObject to css
 const mapPropsToCSS = ({ primary }) => (
   {
     primary: {
@@ -28,6 +33,7 @@ const mapPropsToCSS = ({ primary }) => (
   }
 );
 
+// Connect the component to the ThemeProvider
 const Blah = connectTheme(mapPropsToCSS)(component);
 
 ReactDOM.render(
@@ -36,3 +42,4 @@ ReactDOM.render(
   </ThemeProvider>,
   document.getElementById('app')
 );
+```
