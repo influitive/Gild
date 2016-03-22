@@ -71,7 +71,7 @@ test('Connect', t => {
 
   class Comp extends Component {
     render() {
-      return <div className={this.props.styles.irish}/>;
+      return <div className={this.props.theme.irish}/>;
     }
   }
 
@@ -84,7 +84,7 @@ test('Connect', t => {
   );
 
   const child = TestUtils.findRenderedComponentWithType(tree, Comp);
-  t.ok(child.props.styles, 'The child should receive some classes');
+  t.ok(child.props.theme, 'The child should receive some classes');
 
   t.equal(child.props.pass, 'through', 'The child should still receieve it\'s own props');
 

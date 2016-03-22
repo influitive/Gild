@@ -14,7 +14,7 @@ export class ThemeProvider extends Component {
 // Pluck class names from the sheet and pass them down
 const PluckClasses = Comp => props => {
   const childProps = omit(props, 'sheet');
-  return <Comp {...childProps} styles={props.sheet.classes} />;
+  return <Comp {...childProps} theme={props.sheet.classes} />;
 };
 
 // Pull the theme off of context and pass it to a 'PluckClasses' wrapped component
