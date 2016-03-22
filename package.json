@@ -1,9 +1,11 @@
 {
   "name": "gild",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pass theme object via react context to jss on a component",
   "main": "index.js",
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "BABEL_ENV=test babel-tape-runner \"src/index.test.js\" | tap-spec",
     "start": "kotatsu serve --port 3009 --progress --devtool \\#eval-source-map --babel example/test.js",
