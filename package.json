@@ -22,8 +22,7 @@
     "react-jss": "2.0.1"
   },
   "peerDependencies": {
-    "jss": "^3.3.0",
-    "jss-nested": "^1.0.2"
+    "jss": "^3.3.0"
   },
   "devDependencies": {
     "babel-cli": "6.6.5",
