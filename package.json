@@ -9,7 +9,7 @@
   "scripts": {
     "test": "BABEL_ENV=test babel-tape-runner \"src/index.test.js\" | tap-spec",
     "start": "kotatsu serve --port 3009 --progress --devtool \\#eval-source-map --babel example/test.js",
-    "build": "rm -rf lib && babel --quiet src -d lib",
+    "build": "rm -rf lib && BABEL_ENV=production babel --quiet src -d lib",
     "prepublish": "npm run build && mv lib/index.js index.js",
     "postpublish": "rm index.js",
     "lint": "eslint ."
