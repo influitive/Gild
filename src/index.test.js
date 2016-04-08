@@ -88,7 +88,7 @@ test('Connect', t => {
 
   t.equal(child.props.pass, 'through', 'The child should still receieve it\'s own props');
 
-  const cssRule = document._styleSheets[0].cssRules[0]; // First Stylesheet, first rule
+  const cssRule = document.styleSheets[0].cssRules[0]; // First Stylesheet, first rule
   t.equal(cssRule.style.color, 'green', 'Should add a css rule where color is green');
 
   t.doesNotThrow(() => {
