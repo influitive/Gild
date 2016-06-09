@@ -1,6 +1,5 @@
 import React, { Component, PropTypes, Children } from 'react';
 import omit from 'lodash.omit';
-
 import useSheet from 'react-jss';
 
 // Provide the theme object to context
@@ -28,6 +27,6 @@ export const connectTheme = mapThemeToCss => Composed => {
 
   wrapped.contextTypes = { theme: PropTypes.object };
   wrapped.displayName = `Theme(${Composed.displayName || 'component'})`;
-
+  wrapped.propTypes = Composed.propTypes;
   return wrapped;
 };
