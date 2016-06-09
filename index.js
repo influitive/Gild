@@ -77,7 +77,7 @@ var connectTheme = exports.connectTheme = function connectTheme(mapThemeToCss) {
 
     wrapped.contextTypes = { theme: _react.PropTypes.object };
     wrapped.displayName = 'Theme(' + (Composed.displayName || 'component') + ')';
-
+    wrapped.propTypes = Composed.propTypes;
     return wrapped;
   };
 };
