@@ -1,6 +1,6 @@
 {
   "name": "gild",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Pass theme object via react context to jss on a component",
   "main": "index.js",
   "files": [
