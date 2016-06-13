@@ -1,5 +1,9 @@
 ### Usage:
 
+Gild provides a single HOC that converts and attaches any jss to a component.
+A new prop `theme` will be attached to the component that contains all the customized
+classes created from this jss.
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -8,7 +12,7 @@ import jss from 'jss';
 import nested from 'jss-nested';
 jss.use(nested());
 
-import { ThemeProvider, connectTheme } from '../src';
+import { withJss } from 'gild';
 
 const theme = {
   primary: 'green'
@@ -20,12 +24,12 @@ const component = (props) => {
 };
 
 // Function that maps the themeObject to css
-const mapPropsToCSS = ({ primary }) => (
+const themedJss = (
   {
     primary: {
       color: 'red',
       width: '100%',
-      'background-color': primary,
+      'background-color': theme.primary,
       '&:hover': {
         color: 'yellow'
       }
@@ -34,12 +38,10 @@ const mapPropsToCSS = ({ primary }) => (
 );
 
 // Connect the component to the ThemeProvider
-const Blah = connectTheme(mapPropsToCSS)(component);
+const Blah = withJss(themedJss)(component);
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <Blah />
-  </ThemeProvider>,
+  <Blah />,
   document.getElementById('app')
 );
 ```
