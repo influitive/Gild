@@ -42,7 +42,10 @@ const withSheet = mapThemeToCss => {
 
   const deref = () => {
     refs--;
-    if (refs === 0) sheet.detach();
+    if (refs === 0) {
+      sheet.detach();
+      cache = null;
+    }
   };
 
   return BaseComponent => class withSheet extends Component {
