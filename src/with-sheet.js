@@ -7,7 +7,7 @@ import {
   withProps
 } from 'recompose';
 
-export const withSheet = mapThemeToCss => {
+export default mapThemeToCss => {
   let refs = 0;
   let sheet = null;
   let cache = null;
