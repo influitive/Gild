@@ -2,14 +2,15 @@
   "name": "gild",
   "version": "0.0.6",
   "description": "Pass theme object via react context to jss on a component",
-  "main": "index.js",
+  "main": "lib/index.js",
   "files": [
-    "index.js"
+    "lib/index.js"
   ],
   "scripts": {
     "test": "BABEL_ENV=test babel-tape-runner \"src/index.test.js\" | tap-spec",
     "start": "kotatsu serve --port 3009 --progress --devtool \\#eval-source-map --babel example/test.js",
     "build": "rm -rf lib && BABEL_ENV=production babel --quiet src -d lib",
+    "build:watch": "BABEL_ENV=production babel -w src -d lib",
     "prepublish": "npm run build && mv lib/index.js index.js",
     "postpublish": "rm index.js",
     "lint": "eslint ."
@@ -18,7 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "lodash.omit": "^4.1.0",
-    "react-jss": "2.0.1"
+    "react-jss": "2.0.1",
+    "recompose": "^0.19.0"
   },
   "peerDependencies": {
     "jss": "^3.3.0",
@@ -41,6 +43,7 @@
     "isparta": "4.0.0",
     "jsdom": "^8.3.0",
     "jss": "^3.3.0",
+    "jss-nested": "^1.0.3",
     "kotatsu": "^0.12.1",
     "nodemon": "^1.8.1",
     "react": "^15.0.0",

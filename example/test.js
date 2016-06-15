@@ -12,7 +12,7 @@ const theme = {
 };
 
 const component = (props) => {
-  return <div className={props.styles.primary}>{JSON.stringify(props)}</div>;
+  return <div className={props.theme.primary}>{JSON.stringify(props)}</div>;
 };
 
 const mapPropsToCSS = ({ primary }) => (
@@ -30,9 +30,30 @@ const mapPropsToCSS = ({ primary }) => (
 
 const Blah = connectTheme(mapPropsToCSS)(component);
 
+class App extends React.Component {
+  state = {
+    color: 'green'
+  };
+  render() {
+    return <div>
+      <input type="text"
+        value={this.state.color}
+        onChange={e => this.setState({ color: e.target.value })} />
+      <ThemeProvider theme={{ primary: this.state.color }}>
+        <div>
+          <Blah />
+          <Blah />
+          <Blah />
+          <Blah />
+          <Blah />
+          <Blah />
+        </div>
+      </ThemeProvider>
+    </div>;
+  }
+}
+
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <Blah />
-  </ThemeProvider>,
+  <App/> ,
   document.getElementById('app')
 );
