@@ -11,7 +11,7 @@
     "start": "kotatsu serve --port 3009 --progress --devtool \\#eval-source-map --babel example/test.js",
     "build": "rm -rf lib && BABEL_ENV=production babel --quiet src -d lib",
     "build:watch": "BABEL_ENV=production babel -w src -d lib",
-    "prepublish": "npm run build && mv lib/index.js index.js",
+    "prepublish": "npm run build",
     "postpublish": "rm index.js",
     "lint": "eslint ."
   },
