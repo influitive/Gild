@@ -1,6 +1,6 @@
 {
   "name": "gild",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Pass theme object via react context to jss on a component",
   "main": "lib/index.js",
   "files": [
@@ -12,7 +12,6 @@
     "build": "rm -rf lib && BABEL_ENV=production babel --quiet src -d lib",
     "build:watch": "BABEL_ENV=production babel -w src -d lib",
     "prepublish": "npm run build",
-    "postpublish": "rm index.js",
     "lint": "eslint ."
   },
   "author": "SeeThruHead",
