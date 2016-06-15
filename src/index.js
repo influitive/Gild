@@ -10,7 +10,9 @@ import {
   setDisplayName,
   wrapDisplayName,
   withContext,
-  branch
+  branch,
+  lifecycle,
+  withProps
 } from 'recompose';
 
 const omitProp = propName => mapProps(props => omit(props, propName));
@@ -48,23 +50,25 @@ const withSheet = mapThemeToCss => {
     }
   };
 
-  return BaseComponent => class withSheet extends Component {
-    componentWillMount() {
-      const nextState = mapThemeToCss(this.props.theme);
-      ref(nextState);
-    }
-    componentWillReceiveProps(nextProps) {
-      if (!isEqual(this.props.theme, nextProps.theme)) {
-        attach(mapThemeToCss(nextProps.theme), true);
+  return compose(
+    lifecycle({
+      componentWillMount() {
+        const nextState = mapThemeToCss(this.props.theme);
+        ref(nextState);
+      },
+      componentWillReceiveProps(nextProps) {
+        if (!isEqual(this.props.theme, nextProps.theme)) {
+          attach(mapThemeToCss(nextProps.theme), true);
+        }
+      },
+      componentWillUnmount() {
+        deref();
       }
-    }
-    componentWillUnmount() {
-      deref();
-    }
-    render() {
-      return <BaseComponent {...this.props} sheet={sheet} />;
-    }
-  };
+    }),
+    withProps(() => ({
+      sheet
+    }))
+  );
 };
 
 export const connectTheme = mapThemeToCss => BaseComponent => {
