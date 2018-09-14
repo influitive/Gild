@@ -1,4 +1,5 @@
-import { PropTypes, Children } from 'react';
+import PropTypes from 'prop-types';
+import { Children } from 'react';
 import omit from 'lodash.omit';
 import {
   compose,
